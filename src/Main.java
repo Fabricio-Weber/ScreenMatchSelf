@@ -1,18 +1,18 @@
-import br.com.alura.screenmatch.model.Movie;
+import br.com.alura.screenmatch.model.Title;
 
 public class Main {
     public static void main(String[] args) {
-        Movie myMovie = new Movie();
+        Title myTitle = new Title();
 
-        myMovie.setName("The Godfather");
-        myMovie.setReleaseYear(1972);
-        myMovie.setRuntimeMinutes(175);
+        myTitle.setName("The Godfather");
+        myTitle.setReleaseYear(1972);
+        myTitle.setRuntimeMinutes(175);
 
 
-        myMovie.rateMovie(10);
-        myMovie.rateMovie(9.9);
-        myMovie.rateMovie(9.8);
+        myTitle.rateMovie(10);
+        myTitle.rateMovie(9.9);
+        myTitle.rateMovie(9.8);
 
-        myMovie.showMovieInfo();
+        myTitle.showMovieInfo();
     }
 }
