@@ -9,6 +9,11 @@ public abstract class Title {
    private int totalReviews;
    private int runtimeMinutes;
 
+    public Title(String name, int releaseYear) {
+        this.name = name;
+        this.releaseYear = releaseYear;
+    }
+
     public String getName() {
         return name;
     }

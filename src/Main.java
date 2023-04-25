@@ -4,29 +4,23 @@ import br.com.screenmatch.models.Episodes;
 import br.com.screenmatch.models.Series;
 import br.com.screenmatch.models.Movie;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Movie myTitle = new Movie();
-
-        myTitle.setName("The Godfather");
-        myTitle.setReleaseYear(1972);
+        Movie myTitle = new Movie("The Godfather", 1972);
         myTitle.setRuntimeMinutes(175);
-
         myTitle.rateMovie(10);
         myTitle.rateMovie(9.9);
         myTitle.rateMovie(9.8);
 
         myTitle.showMovieInfo();
 
-        Movie otherMovie = new Movie();
-        otherMovie.setName("Apocalypse Now");
+        Movie otherMovie = new Movie("Apocalypse Now", 1979);
         otherMovie.setDirector("Francis Ford Coppola");
-        otherMovie.setReleaseYear(1979);
         otherMovie.setRuntimeMinutes(153);
 
-        Series mySerie = new Series();
-
-        mySerie.setName("Breaking Bad");
+        Series mySerie = new Series("Breaking Bad", 2008 );
         mySerie.setSeasons(5);
         mySerie.setEpisodes(42);
         mySerie.setMinutesPerEpisode(55);
@@ -47,5 +41,25 @@ public class Main {
         episode.setName("pilot");
         episode.setSerie(mySerie);
         episode.setTotalViews(1500);
+
+        filter.filters(episode);
+
+        Movie taxiDriver = new Movie("Taxi Driver", 1976);
+        taxiDriver.setDirector("Martin Scorsese");
+        taxiDriver.setGenre("Drama");
+        taxiDriver.setRuntimeMinutes(114);
+        taxiDriver.setUserScore(9);
+
+        ArrayList<Movie> movieListArray = new ArrayList<>();
+        movieListArray.add(taxiDriver);
+        movieListArray.add(myTitle);
+        movieListArray.add(otherMovie);
+
+        System.out.println("List Size: " + movieListArray.size());
+        System.out.println("Movie title: " + movieListArray.get(0).getName());
+        for (int i =0; i< movieListArray.size();i++ ){
+            System.out.println(movieListArray.get(i).toString());
+
+        }
     }
 }
