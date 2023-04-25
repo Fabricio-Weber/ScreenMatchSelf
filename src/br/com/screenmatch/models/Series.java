@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.model;
+package br.com.screenmatch.models;
 
 public class Series extends Title{
     private int episodes;
@@ -37,6 +37,12 @@ public class Series extends Title{
 
     public void setStillRunning(boolean stillRunning) {
         this.stillRunning = stillRunning;
+    }
+
+
+    @Override
+    public int getRuntimeMinutes() {
+        return  seasons * episodes * minutesPerEpisode;
     }
 }
 

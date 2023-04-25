@@ -1,7 +1,8 @@
-package br.com.alura.screenmatch.model;
+package br.com.screenmatch.models;
 
-public class Title {
+public abstract class Title {
    private String name;
+   private String genre;
    private int releaseYear;
    private boolean planIncluded;
    private double userScore;
@@ -14,6 +15,14 @@ public class Title {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public int getReleaseYear() {
@@ -52,12 +61,17 @@ public class Title {
         this.runtimeMinutes = runtimeMinutes;
     }
 
+    public double getAverageScore(){
+        double average = this.userScore / this.totalReviews;
+        return average;
+    }
+
    public void showMovieInfo(){
         System.out.println(this.name);
-        System.out.println(this.releaseYear);
-        System.out.println(this.userScore / this.totalReviews);
-        System.out.println(this.totalReviews);
-        System.out.println(this.runtimeMinutes);
+        System.out.println("Release Year: " + this.releaseYear);
+        System.out.println("Average user Score: " + getAverageScore());
+        System.out.println("Total Reviews: " + this.totalReviews);
+        System.out.println("Runtime: " + this.runtimeMinutes + "m");
     }
 
    public void rateMovie(double score){
