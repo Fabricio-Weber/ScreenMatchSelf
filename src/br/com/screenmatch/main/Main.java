@@ -1,3 +1,5 @@
+package br.com.screenmatch.main;
+
 import br.com.screenmatch.calculators.RecommendationFilter;
 import br.com.screenmatch.calculators.TimeCalculator;
 import br.com.screenmatch.models.Episodes;
@@ -10,9 +12,9 @@ public class Main {
     public static void main(String[] args) {
         Movie myTitle = new Movie("The Godfather", 1972);
         myTitle.setRuntimeMinutes(175);
-        myTitle.rateMovie(10);
-        myTitle.rateMovie(9.9);
-        myTitle.rateMovie(9.8);
+        myTitle.rateTitle(10);
+        myTitle.rateTitle(9.9);
+        myTitle.rateTitle(9.8);
 
         myTitle.showMovieInfo();
 

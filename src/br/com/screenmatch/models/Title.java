@@ -1,6 +1,6 @@
 package br.com.screenmatch.models;
 
-public abstract class Title {
+public abstract class Title implements Comparable<Title> {
    private String name;
    private String genre;
    private int releaseYear;
@@ -71,6 +71,11 @@ public abstract class Title {
         return average;
     }
 
+    @Override
+    public int compareTo(Title otherTitle){
+        return this.getName().compareTo(otherTitle.getName());
+    }
+
    public void showMovieInfo(){
         System.out.println(this.name);
         System.out.println("Release Year: " + this.releaseYear);
@@ -79,7 +84,7 @@ public abstract class Title {
         System.out.println("Runtime: " + this.runtimeMinutes + "m");
     }
 
-   public void rateMovie(double score){
+   public void rateTitle(double score){
         this.userScore += score;
         this.totalReviews++;
     }
