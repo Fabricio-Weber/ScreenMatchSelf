@@ -1,13 +1,23 @@
 package br.com.screenmatch.models;
 
-public abstract class Title implements Comparable<Title> {
+import com.google.gson.annotations.SerializedName;
+
+public  class Title implements Comparable<Title> {
+    @SerializedName("Title")
    private String name;
    private String genre;
+   @SerializedName("Year")
    private int releaseYear;
    private boolean planIncluded;
    private double userScore;
    private int totalReviews;
    private int runtimeMinutes;
+
+    public Title(TitleOMDb newTitleOMDb){
+        this.name = newTitleOMDb.title();
+        this.releaseYear = Integer.valueOf(newTitleOMDb.year());
+        this.runtimeMinutes = Integer.valueOf(newTitleOMDb.runtime().substring(0, 2));
+    }
 
     public Title(String name, int releaseYear) {
         this.name = name;
@@ -88,4 +98,6 @@ public abstract class Title implements Comparable<Title> {
         this.userScore += score;
         this.totalReviews++;
     }
+
+
 }
