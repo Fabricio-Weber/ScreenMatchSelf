@@ -15,8 +15,13 @@ public  class Title implements Comparable<Title> {
 
     public Title(TitleOMDb newTitleOMDb){
         this.name = newTitleOMDb.title();
+
+        if(newTitleOMDb.year().length() > 4){
+            throw new NumberFormatException("Couldn't convert the year because the string more than 4 characters or" +
+                    " an invalid character");
+        }
         this.releaseYear = Integer.valueOf(newTitleOMDb.year());
-        this.runtimeMinutes = Integer.valueOf(newTitleOMDb.runtime().substring(0, 2));
+        this.runtimeMinutes = Integer.valueOf(newTitleOMDb.runtime().substring(0, 3));
     }
 
     public Title(String name, int releaseYear) {
@@ -98,6 +103,9 @@ public  class Title implements Comparable<Title> {
         this.userScore += score;
         this.totalReviews++;
     }
-
+@Override
+    public String toString(){
+        return "(Name: " + name + " Year: " + releaseYear + " Runtime: " + runtimeMinutes + ")";
+    }
 
 }
